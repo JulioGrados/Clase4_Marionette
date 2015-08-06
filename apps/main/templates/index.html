@@ -1,0 +1,163 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+		<link href="{% static 'css/application.css' %}" rel="stylesheet">
+	</head>
+	<body>
+		<header id="header-region">
+		</header>
+		
+		<div id="main-region">
+		</div>
+
+		<script type="text/template" id="header-template">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" href="#eventos">Event Devcode</a>
+					<div class="nav-collapse collapse">
+						<ul class="nav"></ul>
+					</div>
+				</div>
+			</div>
+		</script>
+
+		<script type="text/template" id="header-link">
+			<a href="#<%= url %>"><%= name %></a>
+		</script>
+	
+		<script type="text/template" id="static-template">
+			
+				<div class="event-poster__decoration" style="background-color: rgb(130, 144, 148);">
+				</div>
+	        	<div class="event-poster__header">
+	        		<div id="item-detail-evento" class="event-poster__date">
+	            		Ingresa ->
+	        		</div>
+	        		<div class="event-poster__logo img-90 js-xd-background" style="background-color: rgb(130, 144, 148);">
+	                	<img class="js-poster-image js-d-retina" src="<%= image%>" itemprop="image" dorsal-guid="89949f2f-660b-0685-4739-3249a4f63389" data-xd-wired="retina">
+	            	</div>
+	        	</div>
+	        	<div class="event-poster__description">
+	                <h4 id="item-name" class="event-poster__title"><%= name%></h4>
+            		<ul class="event-poster__info">
+		                <li>
+		                    <span class="text--truncated">
+		                        <%= category%>
+		                    </span>
+		                </li>
+		                <li> 
+		                    <span class="text--truncated">
+		                        <%= address%>
+		                </li>   
+		            </ul>
+		        </div>
+			
+		</script>
+
+		<script type="text/template" id="detalle-template">
+			<div class="item-datos">
+				<h1><%= name%></h1>
+				<div>
+					<strong >Categoria:</strong><span ><%= category%></span>	
+				</div>
+				<div>
+					<span ><%= dia%></span>, Hora: <span ><%= hora%></span> - Fecha : <span ><%= fecha%></span>	
+				</div>
+				<div>
+					<strong >Dirección: </strong><span ><%= address%></span>
+				</div>
+				<div>
+					<h3><%= description%></h3>
+					<h4><%= organizer%></h4>
+				</div>
+				<button class="btn btn-small">Atras</button>
+				<button id="item_favorito" class="btn">Favoritos</button>
+			</div>
+			<div class="item-img">
+				<img class="js-poster-image js-d-retina" src="<%= image %>" alt="event logo" itemprop="image" dorsal-guid="89949f2f-660b-0685-4739-3249a4f63389" data-xd-wired="retina">
+			</div>
+		</script>
+
+		<script type="text/template" id="events-register-layout">
+			<div id="event-item"></div>
+			<h2>Registrar: </h2>
+			<div id="event-register"></div>
+		</script>
+
+		<script type="text/template" id="register-template">
+			<div class="item-date-person">
+				<div class="item-register">
+					<span>Nombre: </span>
+					<input id="item-nombre" type="text">
+				</div>
+				<div class="item-register">
+					<span>Apellido: </span>
+					<input id="item-apellido" type="text">
+				</div>
+			</div>
+			<div class="item-date-person">
+				<div class="item-register">
+					<span>DNI: </span>
+					<input id="item-dni" type="text">
+				</div>
+				<div class="item-register">
+					<span>Telefono</span>
+					<input id="item-telefono" type="text">
+				</div>
+			</div>
+			<div>
+				<button id="item_register" class="btn">Registrar</button>
+			</div>
+		</script>
+
+		<script type="text/template" id="about-template">
+			<h1>Datos de la aplicación!</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae at mollitia unde alias eaque perferendis, voluptates similique ullam distinctio, voluptatem, exercitationem provident. Eos harum voluptatem a suscipit dicta quod repudiandae.
+			</p>
+		</script>
+
+		<script src="{% static 'js/vendor/jquery.js' %}"></script>
+		<script src="{% static 'js/vendor/json2.js' %}"></script>
+		<script src="{% static 'js/vendor/underscore.js' %}"></script>
+		<script src="{% static 'js/vendor/backbone.js' %}"></script>
+		<script src="{% static 'js/vendor/backbone.picky.js' %}"></script>
+		<script src="{% static 'js/vendor/backbone.marionette.js' %}"></script>
+
+		<script src="{% static 'js/app.js' %}"></script>
+		<script src="{% static 'js/entities/header.js' %}"></script>
+		<script src="{% static 'js/entities/evento.js' %}"></script>
+
+		<script src="{% static 'js/apps/header/header_app.js' %}"></script>
+		<script src="{% static 'js/apps/eventos/eventos_app.js' %}"></script>
+
+		<script src="{% static 'js/apps/about/about_app.js' %}"></script>
+
+		<script src="{% static 'js/apps/header/list/list_controller.js' %}"></script>
+		<script src="{% static 'js/apps/header/list/list_view.js' %}"></script>
+
+		<script src="{% static 'js/apps/eventos/list/list_controller.js' %}"></script>
+		<script src="{% static 'js/apps/eventos/list/list_view.js' %}"></script>
+
+		<script src="{% static 'js/apps/eventos/list_MyEvent/list_controller.js' %}"></script>
+		<script src="{% static 'js/apps/eventos/list_MyEvent/list_view.js' %}"></script>
+
+
+		<script src="{% static 'js/apps/eventos/list_FavEvent/list_controller.js' %}"></script>
+		<script src="{% static 'js/apps/eventos/list_FavEvent/list_view.js' %}"></script>
+
+		<script src="{% static 'js/apps/eventos/show/show_controller.js' %}"></script>
+		<script src="{% static 'js/apps/eventos/show/show_view.js' %}"></script>
+
+		<script src="{% static 'js/apps/about/show/show_controller.js' %}"></script>
+		<script src="{% static 'js/apps/about/show/show_view.js' %}"></script>
+
+		<script>
+			EventManager.start();
+		</script>
+	</body>
+</html>
